@@ -1,6 +1,6 @@
 <?php 
 
 return [
-    ['path' => '/', 'view' => 'home'],
+    ['path' => '/', 'view' => 'topic'],
     ['path' => '/:topic/:subtopic', 'view' => 'topic']
 ];

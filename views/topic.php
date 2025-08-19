@@ -1,10 +1,3 @@
-<?php 
-    // echo "<pre>";
-    // print_r($data);
-    // print_r($params['subtopic']);
-    // echo "</pre>";
-?>
-
 <div class="container">
     <div class="block">
         <h2>Тема</h2>

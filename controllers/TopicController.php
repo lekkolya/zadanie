@@ -34,18 +34,21 @@ class TopicController
         return $this->renderLayout('error', []);
     }
 
+
     public function findingPath($params) {
         foreach($this->data as $topic) {
-            if($topic['url'] === '/'.$params['topic']) {
-                foreach($topic['subtopics'] as $subtopic) {
-                    if($subtopic['url'] === '/'.$params['topic'].'/'.$params['subtopic']) {
-                        return ['topictitle' => $topic['title'], 'subtopicitle' => $subtopic['title'], 'subtopiccontent' => $subtopic['content'], 'params' => $params];
+            if(isset($params['topic'])) {
+                if($topic['url'] === '/'.$params['topic']) {
+                    foreach($topic['subtopics'] as $subtopic) {
+                        if($subtopic['url'] === '/'.$params['topic'].'/'.$params['subtopic']) {
+                            return ['topictitle' => $topic['title'], 'subtopicitle' => $subtopic['title'], 'subtopiccontent' => $subtopic['content'], 'params' => $params];
+                        }
                     }
                 }
+            }else {
+                return ['topictitle' => 'Подтема 1.1', 'subtopicitle' => 'Подтема 1.1.1', 'subtopiccontent' => 'Содержимое Подтемы 1.1.1', 'params' => ['topic' => 'topic-1', 'subtopic' => 'subtopic-1-1']];
             }
         }
-
-        return [];
     }
  
     private function renderLayout($view, $content) {
