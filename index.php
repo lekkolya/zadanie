@@ -1,15 +1,15 @@
 <?php 
 
-    use Controllers\TopicController;
+use Core\Router;
+use Core\Render;
 
-    define("ROOT", dirname(__FILE__));
-    
-    include_once ROOT . '/controllers/TopicController.php';
+define("ROOT", dirname(__FILE__));
 
-    $data = json_decode(file_get_contents(ROOT . '/data/content.json'), true);
+include_once ROOT . '/core/Router.php';
+include_once ROOT . '/core/Render.php';
 
-    $routes = include ROOT . '/core/config/routes.php';
+$data = json_decode(file_get_contents(ROOT . '/data/content.json'), true);
+$routes = include ROOT . '/core/config/routes.php';
 
-    $topicController = new TopicController($routes, $data, $_SERVER['REQUEST_URI']);
-    $topicController->index();
-?>
+$router = new Router($routes, $_SERVER['REQUEST_URI'], $data);
+echo (new Render) -> render(...$router->index());

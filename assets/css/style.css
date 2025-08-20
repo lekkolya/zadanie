@@ -1,4 +1,4 @@
-* {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,7 +15,6 @@ body {
     font-size: 16px;
 }
 
-
 .container {
     display: grid;
     grid-template-columns: 200px 200px 1fr;
@@ -26,6 +25,7 @@ body {
 .block {
     border: 1px solid #ddd;
     padding: 1rem;
+    overflow-y: auto;
 }
 
 .block h2 {
@@ -41,10 +41,11 @@ body {
     border-radius: 5px;
     transition: background 0.2s;
 }
-.item > a{
+
+.item > a {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 5px 12px;
 }
 
 .item:hover {
@@ -54,7 +55,6 @@ body {
 .item.active {
     background-color: #333;
     color: #fff;
-    font-weight: bold;
 }
 
 .content {
@@ -62,6 +62,16 @@ body {
     line-height: 1.5;
 }
 
-.subtopic-items.hidden {
-    display: none;
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.content th, .content td {
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+}
+.content th {
+    background: #f9f9f9;
+    width: 200px;
 }
