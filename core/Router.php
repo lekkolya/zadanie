@@ -37,15 +37,15 @@ class Router {
                 $arr = $this->data;
             }
         }
-
+        
         return $arr;
     }
 
     private function getArrUri() {
         $url = explode('/', trim($this->uri, '/'));
 
-        if(empty($url[0])) {
-            $url = [0 => "contacts",1 => 15,];
+        if(empty($url[0]) || ($url[0] == 'crud')) {
+            $url = [0 => "contacts", 1 => 15,];
         }
         return $url;
     }
